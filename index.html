@@ -3,44 +3,70 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>DashSwitch | User Dashboard</title>
+    <title>Secure Dashboard Login</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <div class="container">
+        <div class="header">
+            <h1><i class="fas fa-shield-alt"></i> Secure Dashboard</h1>
+            <p>Enterprise-grade security with advanced authentication requirements</p>
+        </div>
+
         <!-- Login Card -->
-        <div class="card login-card" id="loginSection">
+        <div class="card" id="loginSection">
             <div class="card-header">
-                <h2><i class="fas fa-user-shield"></i> DashSwitch Login</h2>
+                <h2><i class="fas fa-user-shield"></i> Secure Login</h2>
             </div>
             <div class="card-body">
                 <form id="loginForm">
                     <div class="form-group">
-                        <label for="username"><i class="fas fa-user"></i> Username</label>
-                        <input type="text" id="username" class="form-control" placeholder="Enter your username" required>
+                        <label for="username"><i class="fas fa-envelope"></i> Email Address</label>
+                        <input type="email" id="username" class="form-control" placeholder="Enter your email" required>
+                        <div id="emailError" class="error-message">Please enter a valid email address</div>
                     </div>
                     <div class="form-group">
                         <label for="password"><i class="fas fa-lock"></i> Password</label>
-                        <input type="password" id="password" class="form-control" placeholder="Enter your password" required>
+                        <div class="input-wrapper">
+                            <input type="password" id="password" class="form-control" placeholder="Enter your password" required>
+                            <span class="toggle-password" id="togglePassword">
+                                <i class="fas fa-eye"></i>
+                            </span>
+                        </div>
+                        <div class="password-strength">
+                            <div class="strength-meter" id="strengthMeter"></div>
+                        </div>
+                        <div id="passwordError" class="error-message"></div>
+                        
+                        <div class="password-rules">
+                            <strong>Password Requirements:</strong>
+                            <ul>
+                                <li id="rule-length"><i class="fas fa-circle"></i> At least 8 characters</li>
+                                <li id="rule-uppercase"><i class="fas fa-circle"></i> One uppercase letter (A-Z)</li>
+                                <li id="rule-lowercase"><i class="fas fa-circle"></i> One lowercase letter (a-z)</li>
+                                <li id="rule-number"><i class="fas fa-circle"></i> One number (0-9)</li>
+                                <li id="rule-special"><i class="fas fa-circle"></i> One special character (!@#$%^&*)</li>
+                            </ul>
+                        </div>
                     </div>
-                    <button type="submit" class="btn btn-primary">Sign In <i class="fas fa-arrow-right"></i></button>
+                    <button type="submit" class="btn">Sign In <i class="fas fa-arrow-right"></i></button>
                 </form>
-                <div style="text-align: center; margin-top: 20px;">
-                    <p style="color: var(--gray);">Demo credentials: any username/password</p>
+                <div class="demo-credentials">
+                    <p><i class="fas fa-key"></i> Demo credentials: user@example.com / SecurePass123!</p>
                 </div>
             </div>
         </div>
 
-        <!-- Dashboard Card -->
-        <div class="card dashboard-card" id="dashboardSection">
-            <div class="card-header">
+        <!-- Dashboard Section -->
+        <div class="card dashboard-section" id="dashboardSection">
+            <div class="dashboard-header">
                 <h2><i class="fas fa-tachometer-alt"></i> Dashboard</h2>
             </div>
-            <div class="card-body">
+            <div class="dashboard-body">
                 <div class="welcome-message">
                     <h2>Welcome back, <span id="userName">User</span>!</h2>
-                    <p>Here's what's happening with your account today</p>
+                    <p>Your account is secured with advanced authentication protocols</p>
                 </div>
 
                 <div class="dashboard-stats">
@@ -48,53 +74,53 @@
                         <div class="stat-icon">
                             <i class="fas fa-chart-line"></i>
                         </div>
-                        <div class="stat-value">$12,842</div>
+                        <div class="stat-value">$24,842</div>
                         <div class="stat-label">Total Revenue</div>
                     </div>
                     <div class="stat-card">
                         <div class="stat-icon">
                             <i class="fas fa-users"></i>
                         </div>
-                        <div class="stat-value">2,418</div>
+                        <div class="stat-value">4,218</div>
                         <div class="stat-label">Active Users</div>
                     </div>
                     <div class="stat-card">
                         <div class="stat-icon">
-                            <i class="fas fa-shopping-cart"></i>
+                            <i class="fas fa-shield-alt"></i>
                         </div>
-                        <div class="stat-value">324</div>
-                        <div class="stat-label">New Orders</div>
+                        <div class="stat-value">100%</div>
+                        <div class="stat-label">Security Score</div>
                     </div>
                 </div>
 
                 <div class="recent-activity">
-                    <h3><i class="fas fa-history"></i> Recent Activity</h3>
+                    <h3><i class="fas fa-history"></i> Security Activity</h3>
                     <ul class="activity-list">
                         <li class="activity-item">
                             <div class="activity-icon">
-                                <i class="fas fa-user-plus"></i>
+                                <i class="fas fa-user-check"></i>
                             </div>
                             <div class="activity-content">
-                                <h4>New user registered</h4>
-                                <p>John Doe joined the platform 2 hours ago</p>
+                                <h4>Successful login</h4>
+                                <p>You logged in from this device just now</p>
                             </div>
                         </li>
                         <li class="activity-item">
                             <div class="activity-icon">
-                                <i class="fas fa-file-invoice-dollar"></i>
+                                <i class="fas fa-lock"></i>
                             </div>
                             <div class="activity-content">
-                                <h4>Invoice #INV-0042 generated</h4>
-                                <p>New invoice for $1,200 was created</p>
+                                <h4>Password updated</h4>
+                                <p>Your password was strengthened 14 days ago</p>
                             </div>
                         </li>
                         <li class="activity-item">
                             <div class="activity-icon">
-                                <i class="fas fa-server"></i>
+                                <i class="fas fa-shield-alt"></i>
                             </div>
                             <div class="activity-content">
-                                <h4>System update completed</h4>
-                                <p>Version 2.3.1 successfully deployed</p>
+                                <h4>Security audit passed</h4>
+                                <p>Your account meets all security requirements</p>
                             </div>
                         </li>
                     </ul>
@@ -104,10 +130,12 @@
                     <p>Last login: <span id="lastLogin">Today at 09:30 AM</span></p>
                 </div>
 
-                <div style="text-align: center; margin-top: 30px;">
-                    <button id="logoutBtn" class="btn btn-logout"><i class="fas fa-sign-out-alt"></i> Logout</button>
-                </div>
+                <button id="logoutBtn" class="btn btn-logout"><i class="fas fa-sign-out-alt"></i> Logout</button>
             </div>
+        </div>
+        
+        <div class="footer">
+            <p>© 2023 Secure Dashboard. All rights reserved. Advanced authentication system.</p>
         </div>
     </div>
 
